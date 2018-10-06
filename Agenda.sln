@@ -1,0 +1,27 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{0ABA9593-133B-4C94-9524-9CE979238D4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{C220ECDD-55EF-42DE-AB74-2721E2F5BC8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Service", "3 - Service", "{57B1A69D-B98E-4E55-B703-A43D0676EFA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{A67BFCB8-DC0E-478F-8690-D2F9EA83F425}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{A4C6DFE2-A781-4DE2-B8C1-13A59A3B4A1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{BC113A2E-1700-400C-8C69-A4FDFA7FB806}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{6D6B416A-6B23-4B8A-99FE-C02472D742C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BC113A2E-1700-400C-8C69-A4FDFA7FB806} = {A67BFCB8-DC0E-478F-8690-D2F9EA83F425}
+		{6D6B416A-6B23-4B8A-99FE-C02472D742C6} = {A67BFCB8-DC0E-478F-8690-D2F9EA83F425}
+	EndGlobalSection
+EndGlobal
