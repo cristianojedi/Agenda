@@ -3,15 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="FluentValidation.AspNetCore" Version="8.0.100" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Interfaces\IRepository.cs~RF117ae0f.TMP" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Entities\" />
-    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>

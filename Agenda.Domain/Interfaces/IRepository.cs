@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using Agenda.Domain.Entities;
 
 namespace Agenda.Domain.Interfaces
 {
-    public interface IRepository<T> where T : BaseEntity
+    public interface IRepository<T>
     {
         void Inserir(T objeto);
 
         void Alterar(T objeto);
 
-        void Deletar(Guid id);
+        void Excluir(Guid id);
 
         T Consultar(Guid id);
 

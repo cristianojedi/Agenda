@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{0ABA9593-133B-4C94-9524-9CE979238D4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{C220ECDD-55EF-42DE-AB74-2721E2F5BC8D}"
@@ -15,15 +16,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{6D6B416A-6B23-4B8A-99FE-C02472D742C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agenda.Application", "Agenda.Application\Agenda.Application.csproj", "{C8DEC53F-18EF-4E86-8136-B7CC1C68431A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda.Application", "Agenda.Application\Agenda.Application.csproj", "{C8DEC53F-18EF-4E86-8136-B7CC1C68431A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agenda.Domain", "Agenda.Domain\Agenda.Domain.csproj", "{DFF6FBFC-5C2E-45BF-80DC-46810795591B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda.Domain", "Agenda.Domain\Agenda.Domain.csproj", "{DFF6FBFC-5C2E-45BF-80DC-46810795591B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agenda.Service", "Agenda.Service\Agenda.Service.csproj", "{447C3087-1290-4031-952E-42500AE26362}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda.Service", "Agenda.Service\Agenda.Service.csproj", "{447C3087-1290-4031-952E-42500AE26362}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agenda.Infra.Data", "Agenda.Infra.Data\Agenda.Infra.Data.csproj", "{AD00A3C3-7420-4003-B266-2B0A7ABF17CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda.Infra.Data", "Agenda.Infra.Data\Agenda.Infra.Data.csproj", "{AD00A3C3-7420-4003-B266-2B0A7ABF17CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agenda.Infra.CrossCutting", "Agenda.Infra.CrossCutting\Agenda.Infra.CrossCutting.csproj", "{955DFC4D-F421-47C9-B64C-014F1E5A4B75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda.Infra.CrossCutting", "Agenda.Infra.CrossCutting\Agenda.Infra.CrossCutting.csproj", "{955DFC4D-F421-47C9-B64C-014F1E5A4B75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +53,9 @@ Global
 		{955DFC4D-F421-47C9-B64C-014F1E5A4B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{955DFC4D-F421-47C9-B64C-014F1E5A4B75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BC113A2E-1700-400C-8C69-A4FDFA7FB806} = {A67BFCB8-DC0E-478F-8690-D2F9EA83F425}
 		{6D6B416A-6B23-4B8A-99FE-C02472D742C6} = {A67BFCB8-DC0E-478F-8690-D2F9EA83F425}
@@ -60,5 +64,8 @@ Global
 		{447C3087-1290-4031-952E-42500AE26362} = {57B1A69D-B98E-4E55-B703-A43D0676EFA9}
 		{AD00A3C3-7420-4003-B266-2B0A7ABF17CB} = {BC113A2E-1700-400C-8C69-A4FDFA7FB806}
 		{955DFC4D-F421-47C9-B64C-014F1E5A4B75} = {6D6B416A-6B23-4B8A-99FE-C02472D742C6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BCE026A-9992-44A7-A44B-365CBA80FA64}
 	EndGlobalSection
 EndGlobal

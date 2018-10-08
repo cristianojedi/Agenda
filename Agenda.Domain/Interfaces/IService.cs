@@ -1,20 +1,18 @@
 ﻿using System;
-using Agenda.Domain.Entities;
-using FluentValidation;
 using System.Collections.Generic;
 
 namespace Agenda.Domain.Interfaces
 {
-    public interface IService<T> where T : BaseEntity
+    public interface IService<T>
     {
-        T Post<V>(T objeto) where V : AbstractValidator<T>;
+        void Inserir(T objeto);
 
-        T Put<V>(T objeto) where V : AbstractValidator<T>;
+        void Alterar(T objeto);
 
-        void Delete(Guid id);
+        void Excluir(Guid id);
 
-        T Get(Guid id);
+        T Consultar(Guid id);
 
-        IList<T> Get();
+        IList<T> Listar();
     }
 }
