@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Agenda.Infra.CrossCutting\Agenda.Infra.CrossCutting.csproj" />
     <ProjectReference Include="..\Agenda.Infra.Data\Agenda.Infra.Data.csproj" />
     <ProjectReference Include="..\Agenda.Service\Agenda.Service.csproj" />
   </ItemGroup>

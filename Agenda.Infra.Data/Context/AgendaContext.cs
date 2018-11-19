@@ -16,12 +16,14 @@ namespace Agenda.Infra.Data.Context
         }
 
         public DbSet<Contato> Contato { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Contato>(new ContatoMap().Configure);
+            modelBuilder.Entity<Usuario>(new UsuarioMap().Configure);
         }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Agenda.Domain.Entities
 {
-    public class Contato
+    public class Usuario
     {
-        public Contato()
+        public Usuario()
         {
             var data = DateTime.Now;
 
@@ -16,9 +16,13 @@ namespace Agenda.Domain.Entities
 
         public string Nome { get; set; }
 
-        public string Celular { get; set; }
+        public string CPF { get; set; }
 
         public string Email { get; set; }
+
+        public string Senha { get; set; }
+
+        public string SenhaConfirmacao { get; set; }
 
         public DateTime DataCadastro { get; set; }
 

@@ -45,6 +45,42 @@ namespace Agenda.Infra.Data.Migrations
 
                     b.ToTable("Contato");
                 });
+
+            modelBuilder.Entity("Agenda.Domain.Entities.Usuario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("varchar(11)");
+
+                    b.Property<DateTime>("DataAlteracao")
+                        .HasColumnType("datetime");
+
+                    b.Property<DateTime>("DataCadastro")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("SenhaConfirmacao")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuario");
+                });
 #pragma warning restore 612, 618
         }
     }

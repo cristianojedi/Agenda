@@ -49,7 +49,7 @@ namespace Agenda.Application.Controllers
             try
             {
                 _contatoService.Inserir(dto);
-                return Ok(dto);
+                return Created(new Uri($"{Request.Path}/{dto.Id}", UriKind.Relative), dto);
             }
             catch (Exception ex)
             {

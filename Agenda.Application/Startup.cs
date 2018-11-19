@@ -31,12 +31,23 @@ namespace Agenda.Application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
+
             // Connexão com o banco de dados
             services.AddDbContext<AgendaContext>(opt =>
             opt.UseSqlServer(Configuration.GetConnectionString("AgendaDB")));
 
             services.AddScoped<IContatoRepository, ContatoRepository>();
             services.AddScoped<IContatoService, ContatoService>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
 
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -64,6 +75,9 @@ namespace Agenda.Application
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // Enable CORS requests
+            app.UseCors("CorsPolicy");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

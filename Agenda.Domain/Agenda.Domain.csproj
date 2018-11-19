@@ -9,7 +9,4 @@
   <ItemGroup>
     <None Remove="Interfaces\IRepository.cs~RF117ae0f.TMP" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
 </Project>

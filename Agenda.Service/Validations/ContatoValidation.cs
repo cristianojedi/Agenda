@@ -16,21 +16,22 @@ namespace Agenda.Service.Validations
                 });
 
             RuleFor(c => c.Nome)
-                .NotNull().WithMessage("Nome é obrigatório")
-                .NotEmpty().WithMessage("Nome é obrigatório");
+                .NotNull().WithMessage(Mensagens.NomeNotNull)
+                .NotEmpty().WithMessage(Mensagens.NomeNotEmpty)
+                .MinimumLength(2).WithMessage(Mensagens.NomeMinimumLength2)
+                .MaximumLength(100).WithMessage(Mensagens.NomeMaximumLength100);
 
             RuleFor(c => c.Celular)
-                .NotNull().WithMessage("Celular é obrigatório")
-                .NotEmpty().WithMessage("Celular é obrigatório");
+                .NotNull().WithMessage(Mensagens.CelularNotNull)
+                .NotEmpty().WithMessage(Mensagens.CelularNotEmpty)
+                .Length(11).WithMessage(Mensagens.CelularLength);
 
             RuleFor(c => c.Email)
-                .NotNull().WithMessage("E-mail é obrigatório")
-                .NotEmpty().WithMessage("E-mail é obrigatório");
-        }
-
-        private bool ValidarData(DateTime data)
-        {
-            return !data.Equals(default(DateTime));
+                .NotNull().WithMessage(Mensagens.EmailNotNull)
+                .NotEmpty().WithMessage(Mensagens.EmailNotEmpty)
+                .EmailAddress().WithMessage(Mensagens.EmailIvalido)
+                .MinimumLength(6).WithMessage(Mensagens.EmailMinimumLength6)
+                .MaximumLength(150).WithMessage(Mensagens.EmailMaximumLength150);
         }
     }
 }
