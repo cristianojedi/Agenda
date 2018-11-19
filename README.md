@@ -8,4 +8,4 @@ Este projeto é uma API Rest, desenvolvida em .Net Core com ênface em C#, demon
 
 E-mail: cristianojedi@gmail.com
 
-Linkedin: https://www.linkedin.com/in/cristiano-m%C3%A1rio-de-ara%C3%BAjo-rocha-548367160/
+Linkedin: <a href="https://www.linkedin.com/in/cristiano-m%C3%A1rio-de-ara%C3%BAjo-rocha-548367160/" target="_blank">Cristiano Rocha</a>
