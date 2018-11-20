@@ -16,6 +16,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.Extensions.PlatformAbstractions;
+using System.IO;
 
 namespace Agenda.Application
 {
@@ -61,7 +63,7 @@ namespace Agenda.Application
                 {
                     Title = "Agenda API",
                     Version = "v1",
-                    Description = "Projeto ASP NET Core 2.1 Web API - Arquitetura DDD",
+                    Description = "Projeto ASP NET Core 2.1 Web API - Modelagem DDD",
                     Contact = new Contact
                     {
                         Name = "Cristiano Rocha"   ,
@@ -69,6 +71,12 @@ namespace Agenda.Application
                         Url = "https://github.com/cristianojedi/Agenda"
                     }
                 });
+
+                string caminhoAplicacao = PlatformServices.Default.Application.ApplicationBasePath;
+                string nomeAplicacao = PlatformServices.Default.Application.ApplicationName;
+                string caminhoXmlDoc = Path.Combine(caminhoAplicacao, $"{nomeAplicacao}.xml");
+
+                c.IncludeXmlComments(caminhoXmlDoc);
             });
         }
 
@@ -93,7 +101,7 @@ namespace Agenda.Application
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Agenda API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Agenda");
             });
 
             app.UseMvc();

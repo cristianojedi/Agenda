@@ -21,55 +21,20 @@ namespace Agenda.Application.Controllers
             _usuarioService = usuarioService;
         }
 
-        [HttpGet]
-        [Route("{id:guid}")]
-        public IActionResult Consultar(Guid id)
-        {
-            try
-            {
-                var usuario = _usuarioService.Consultar(id);
-
-                if (usuario != null)
-                {
-                    var data = new
-                    {
-                        success = true,
-                        result = new
-                        {
-                            nome = usuario.Nome,
-                            email = usuario.Email,
-                        }
-                    };
-
-                    return Ok(data);
-                }
-                else
-                {
-                    var data = new
-                    {
-                        success = true,
-                        result = new
-                        {
-                            mensagem = "Usuário não encontrado!"
-                        }
-                    };
-
-                    return NotFound(data);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { success = false, errors = new KeyValuePair<string, string>("BadRequest", $"Erro ao executar o método Consultar: {ex.Message}") });
-            }
-        }
-
+        /// <summary>
+        /// Método responsável por autenticar o usuário de acordo com os dados de entrada
+        /// </summary>
+        /// <param name="loginDTO">LoginDTO</param>
+        /// <remarks>Autentica o usuário</remarks>
+        /// <response code="200">Ok</response>
+        /// <response code="400">Bad request</response>
+        /// <response code="500">Internal Server Error</response>
         [HttpPost]
         [Route("login")]
-        public IActionResult Logar([FromBody] LoginDTO dto)
+        public IActionResult Logar([FromBody] LoginDTO loginDTO)
         {
             LoginValidation validation = new LoginValidation();
-            ValidationResult validationResult = validation.Validate(dto);
+            ValidationResult validationResult = validation.Validate(loginDTO);
 
             if (!validationResult.IsValid)
             {
@@ -78,7 +43,7 @@ namespace Agenda.Application.Controllers
 
             try
             {
-                var usuario = _usuarioService.Logar(dto.Email, dto.Senha);
+                var usuario = _usuarioService.Logar(loginDTO.Email, loginDTO.Senha);
 
                 var data = new
                 {
@@ -98,11 +63,19 @@ namespace Agenda.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Método responsável por inserir um usuário
+        /// </summary>
+        /// <param name="usuarioDTO">UsuarioDTO</param>
+        /// <remarks>Insere um usuário</remarks>
+        /// <response code="201">Created</response>
+        /// <response code="400">Bad request</response>
+        /// <response code="500">Internal Server Error</response>
         [HttpPost]
-        public IActionResult Inserir([FromBody] UsuarioDTO dto)
+        public IActionResult Inserir([FromBody] UsuarioDTO usuarioDTO)
         {
             UsuarioValidation validation = new UsuarioValidation();
-            ValidationResult validationResult = validation.Validate(dto);
+            ValidationResult validationResult = validation.Validate(usuarioDTO);
 
             if (!validationResult.IsValid)
             {
@@ -111,89 +84,23 @@ namespace Agenda.Application.Controllers
 
             try
             {
-                _usuarioService.Inserir(dto);
+                _usuarioService.Inserir(usuarioDTO);
 
                 var data = new
                 {
                     success = true,
                     result = new
                     {
-                        nome = dto.Nome,
-                        email = dto.Email,
+                        nome = usuarioDTO.Nome,
+                        email = usuarioDTO.Email,
                     }
                 };
 
-                return Created(new Uri($"{Request.Path}/{dto.Id}", UriKind.Relative), data);
+                return Created(new Uri($"{Request.Path}/{usuarioDTO.Id}", UriKind.Relative), data);
             }
             catch (Exception ex)
             {
                 return BadRequest(new { success = false, errors = new KeyValuePair<string, string>("BadRequest", $"Erro ao executar o método Inserir: {ex.Message}") });
-            }
-        }
-
-        [HttpPut]
-        public IActionResult Alterar([FromBody] UsuarioDTO dto)
-        {
-            var listaErros = new List<KeyValuePair<string, string>>();
-            UsuarioValidation validation = new UsuarioValidation();
-            ValidationResult validationResult = validation.Validate(dto);
-
-            if (!validationResult.IsValid)
-            {
-                return ResponseValidationResult(validationResult);
-            }
-
-            try
-            {
-                var data = new
-                {
-                    success = true,
-                    result = new
-                    {
-                        nome = dto.Nome,
-                        email = dto.Email,
-                    }
-                };
-
-                _usuarioService.Alterar(dto);
-
-                return Ok(data);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { success = false, errors = new KeyValuePair<string, string>("BadRequest", $"Erro ao executar o método Alterar: {ex.Message}") });
-            }
-        }
-
-        [HttpDelete]
-        public IActionResult Excluir(Guid id)
-        {
-            try
-            {
-                _usuarioService.Excluir(id);
-                return NotFound(id);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { success = false, errors = new KeyValuePair<string, string>("BadRequest", $"Erro ao executar o método Excluir: {ex.Message}") });
-            }
-        }
-
-        [HttpGet]
-        public IActionResult Listar()
-        {
-            try
-            {
-                var usuarios = _usuarioService.Listar();
-
-                if (usuarios != null)
-                    return Ok(usuarios);
-                else
-                    return NotFound("Não existem Usuários cadastrados");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { success = false, errors = new KeyValuePair<string, string>("BadRequest", $"Erro ao executar o método Listar: {ex.Message}") });
             }
         }
 

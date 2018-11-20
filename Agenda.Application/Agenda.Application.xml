@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Agenda.Application</name>
+    </assembly>
+    <members>
+        <member name="M:Agenda.Application.Controllers.UsuarioController.Logar(Agenda.Domain.DTOs.LoginDTO)">
+            <summary>
+            Método responsável por autenticar o usuário de acordo com os dados de entrada
+            </summary>
+            <param name="loginDTO">LoginDTO</param>
+            <remarks>Autentica o usuário</remarks>
+            <response code="200">Ok</response>
+            <response code="400">Bad request</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:Agenda.Application.Controllers.UsuarioController.Inserir(Agenda.Domain.DTOs.UsuarioDTO)">
+            <summary>
+            Método responsável por inserir um usuário
+            </summary>
+            <param name="usuarioDTO">UsuarioDTO</param>
+            <remarks>Insere um usuário</remarks>
+            <response code="201">Created</response>
+            <response code="400">Bad request</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+    </members>
+</doc>
