@@ -51,5 +51,14 @@ namespace Agenda.Infra.Data.Repository
             _context.Remove(usuario);
             _context.SaveChanges();
         }
+
+        public Usuario Logar(string email, string senha)
+        {
+            var usuario = (from usu in _context.Usuario
+                          where usu.Email == email && usu.Senha == senha
+                          select usu).SingleOrDefault();
+
+            return usuario;
+        }
     }
 }

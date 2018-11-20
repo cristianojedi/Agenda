@@ -96,5 +96,27 @@ namespace Agenda.Service.Services
 
             return null;
         }
+
+        public UsuarioDTO Logar(string email, string senha)
+        {
+            var objeto = _usuarioRepository.Logar(email, senha);
+
+            if (objeto != null)
+            {
+                var usuario = new UsuarioDTO()
+                {
+                    Id = objeto.Id,
+                    Nome = objeto.Nome,
+                    CPF = objeto.CPF,
+                    Email = objeto.Email,
+                    Senha = objeto.Senha,
+                    SenhaConfirmacao = objeto.SenhaConfirmacao
+                };
+
+                return usuario;
+            }
+
+            return null;
+        }
     }
 }
