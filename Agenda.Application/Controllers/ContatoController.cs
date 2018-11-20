@@ -39,7 +39,6 @@ namespace Agenda.Application.Controllers
                 {
                     var data = new
                     {
-                        success = true,
                         result = new
                         {
                             id = contato.Id,
@@ -49,20 +48,19 @@ namespace Agenda.Application.Controllers
                         }
                     };
 
-                    return Ok(data);
+                    return Ok(new { success = true, data = data });
                 }
                 else
                 {
                     var data = new
                     {
-                        success = true,
                         result = new
                         {
                             mensagem = "Contato não encontrado!"
                         }
                     };
 
-                    return NotFound(data);
+                    return NotFound(new { success = true, data = data });
                 }
             }
             catch (Exception ex)
@@ -92,21 +90,20 @@ namespace Agenda.Application.Controllers
 
             try
             {
-                _contatoService.Inserir(contatoDTO);
+                Guid id = _contatoService.Inserir(contatoDTO);
 
                 var data = new
                 {
-                    success = true,
                     result = new
                     {
-                        id = contatoDTO.Id,
+                        id = id,
                         nome = contatoDTO.Nome,
                         celular = contatoDTO.Celular,
                         email = contatoDTO.Email
                     }
                 };
 
-                return Created(new Uri($"{Request.Path}/{contatoDTO.Id}", UriKind.Relative), data);
+                return Created(new Uri($"{Request.Path}/{contatoDTO.Id}", UriKind.Relative), new { success = true, data = data });
             }
             catch (Exception ex)
             {
@@ -139,7 +136,6 @@ namespace Agenda.Application.Controllers
 
                 var data = new
                 {
-                    success = true,
                     result = new
                     {
                         id = contatoDTO.Id,
@@ -149,7 +145,7 @@ namespace Agenda.Application.Controllers
                     }
                 };
 
-                return Ok(data);
+                return Ok(new { success = true, data = data });
             }
             catch (Exception ex)
             {
@@ -174,14 +170,13 @@ namespace Agenda.Application.Controllers
 
                 var data = new
                 {
-                    success = true,
                     result = new
                     {
                         id = id
                     }
                 };
 
-                return NotFound(data);
+                return NotFound(new { success = true, data = data });
             }
             catch (Exception ex)
             {

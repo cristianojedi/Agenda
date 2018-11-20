@@ -45,18 +45,32 @@ namespace Agenda.Application.Controllers
             {
                 var usuario = _usuarioService.Logar(loginDTO.Email, loginDTO.Senha);
 
-                var data = new
+                if (usuario != null)
                 {
-                    success = true,
-                    result = new
+                    var data = new
                     {
-                        nome = usuario.Nome,
-                        email = usuario.Email,
-                    }
-                };
+                        result = new
+                        {
+                            nome = usuario.Nome,
+                            email = usuario.Email,
+                        }
+                    };
 
-                return Ok(data);
-            }
+                    return Ok(new { success = true, data = data });
+                }
+                else
+                {
+                    var data = new
+                    {
+                        result = new
+                        {
+                            mensagem = "Usuário não encontrado!"
+                        }
+                    };
+
+                    return NotFound(new { success = true, data = data });
+                }
+                }
             catch (Exception ex)
             {
                 return BadRequest(new { success = false, errors = new KeyValuePair<string, string>("BadRequest", $"Erro ao executar o método Logar: {ex.Message}") });
@@ -88,7 +102,6 @@ namespace Agenda.Application.Controllers
 
                 var data = new
                 {
-                    success = true,
                     result = new
                     {
                         nome = usuarioDTO.Nome,
@@ -96,7 +109,7 @@ namespace Agenda.Application.Controllers
                     }
                 };
 
-                return Created(new Uri($"{Request.Path}/{usuarioDTO.Id}", UriKind.Relative), data);
+                return Created(new Uri($"{Request.Path}/{usuarioDTO.Id}", UriKind.Relative), new { success = true, data = data });
             }
             catch (Exception ex)
             {

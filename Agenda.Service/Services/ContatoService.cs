@@ -15,7 +15,7 @@ namespace Agenda.Service.Services
             _contatoRepository = contatoRepository;
         }
 
-        public void Inserir(ContatoDTO objeto)
+        public Guid Inserir(ContatoDTO objeto)
         {
             var contato = new Contato()
             {
@@ -25,7 +25,7 @@ namespace Agenda.Service.Services
                 Email = objeto.Email
             };
 
-            _contatoRepository.Inserir(contato);
+            return _contatoRepository.Inserir(contato);
         }
 
         public void Alterar(ContatoDTO objeto)

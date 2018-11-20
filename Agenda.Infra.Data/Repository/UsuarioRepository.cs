@@ -16,10 +16,12 @@ namespace Agenda.Infra.Data.Repository
             _context = context;
         }
 
-        public void Inserir(Usuario usuario)
+        public Guid Inserir(Usuario usuario)
         {
             _context.Add(usuario);
             _context.SaveChanges();
+
+            return usuario.Id;
         }
 
         public void Alterar(Usuario usuario)

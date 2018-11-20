@@ -5,7 +5,7 @@ namespace Agenda.Domain.Interfaces
 {
     public interface IService<T>
     {
-        void Inserir(T objeto);
+        Guid Inserir(T objeto);
 
         void Alterar(T objeto);
 

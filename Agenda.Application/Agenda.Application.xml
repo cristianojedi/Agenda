@@ -4,6 +4,56 @@
         <name>Agenda.Application</name>
     </assembly>
     <members>
+        <member name="M:Agenda.Application.Controllers.ContatoController.Consultar(System.Guid)">
+            <summary>
+            Método responsável por consultar um contato pelo seu id
+            </summary>
+            <param name="id">Guid</param>
+            <remarks>Consulta um contato</remarks>
+            <response code="200">Ok</response>
+            <response code="400">Bad request</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:Agenda.Application.Controllers.ContatoController.Inserir(Agenda.Domain.DTOs.ContatoDTO)">
+            <summary>
+            Método responsável por inserir um contato
+            </summary>
+            <param name="contatoDTO">ContatoDTO</param>
+            <remarks>Insere um contato</remarks>
+            <response code="201">Created</response>
+            <response code="400">Bad request</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:Agenda.Application.Controllers.ContatoController.Alterar(Agenda.Domain.DTOs.ContatoDTO)">
+            <summary>
+            Método responsável por alterar um contato
+            </summary>
+            <param name="contatoDTO">ContatoDTO</param>
+            <remarks>Altera um contato</remarks>
+            <response code="200">Ok</response>
+            <response code="400">Bad request</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:Agenda.Application.Controllers.ContatoController.Excluir(System.Guid)">
+            <summary>
+            Método responsável por deletar um contato
+            </summary>
+            <param name="id">Guid</param>
+            <remarks>Deleta um contato</remarks>
+            <response code="404">NotFound</response>
+            <response code="400">Bad request</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:Agenda.Application.Controllers.ContatoController.Listar">
+            <summary>
+            Método responsável por listar todos os contatos
+            </summary>
+            <remarks>Lista todos os contatos</remarks>
+            <response code="200">Ok</response>
+            <response code="404">NotFound</response>
+            <response code="400">Bad request</response>
+            <response code="500">Internal Server Error</response>
+        </member>
         <member name="M:Agenda.Application.Controllers.UsuarioController.Logar(Agenda.Domain.DTOs.LoginDTO)">
             <summary>
             Método responsável por autenticar o usuário de acordo com os dados de entrada

@@ -15,7 +15,7 @@ namespace Agenda.Service.Services
             _usuarioRepository = usuarioRepository;
         }
 
-        public void Inserir(UsuarioDTO objeto)
+        public Guid Inserir(UsuarioDTO objeto)
         {
             var usuario = new Usuario
             {
@@ -26,7 +26,7 @@ namespace Agenda.Service.Services
                 SenhaConfirmacao = objeto.SenhaConfirmacao
             };
 
-            _usuarioRepository.Inserir(usuario);
+            return _usuarioRepository.Inserir(usuario);
         }
 
         public void Alterar(UsuarioDTO objeto)
